@@ -1,4 +1,4 @@
-numbers = list(map(lambda x: int(x.strip()), open("in1").readlines()))
+numbers = list(map(lambda x: int(x.strip()), open("In/in1").readlines()))
 
 numbers = sorted(numbers)
 

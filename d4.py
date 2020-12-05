@@ -59,7 +59,7 @@ def part2(fields):
 
     return nr_ok
 
-list(map(pre_process, open("in4").readlines()))
+list(map(pre_process, open("In/in4").readlines()))
 
 print(part1(["byr", "iyr",  "eyr",  "hgt",  "hcl",  "ecl", "pid"]))
 print(part2(["byr", "iyr",  "eyr",  "hgt",  "hcl",  "ecl", "pid"]))

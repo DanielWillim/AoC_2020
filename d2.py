@@ -6,7 +6,7 @@ def pre_process(s):
     upper= int(upper)
     return ((lower,upper, char), data.strip())
 
-data = list(map(pre_process, open("in2").readlines()))
+data = list(map(pre_process, open("In/in2").readlines()))
 
 def part1(data):
     ok_pass = 0

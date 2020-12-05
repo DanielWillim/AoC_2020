@@ -3,7 +3,7 @@ def pre_process(data):
     res = list(map(lambda x: x.strip(), data))
     return res[:-1]
 
-data = list(map(pre_process, open("in3").readlines()))
+data = list(map(pre_process, open("In/in3").readlines()))
 
 
 def count_trees(data, right, down):
