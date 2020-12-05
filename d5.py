@@ -14,10 +14,10 @@ def pre_process(raw):
     return(row, col)
 
 def part1(data):
-    steatID = list(map(lambda r: r[0]*8+r[1],data))
+    seatID = list(map(lambda r: r[0]*8+r[1],data))
     
-    print(f"Part 1: {max(steatID)}")
-    return steatID
+    print(f"Part 1: {max(seatID)}")
+    return seatID
 
 def part2(data):
     sort = sorted(data)
