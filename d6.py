@@ -23,8 +23,6 @@ def part2(customs_form):
 
 list(map(pre_process, open("In/in6").readlines()))
 
-
-
 print(part1(customs_form))
 
 print(part2(customs_form))
