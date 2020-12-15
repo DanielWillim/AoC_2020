@@ -1,3 +1,4 @@
+import numpy as np
 
 def pre_process(raw):
     curr_t = int(raw[0].strip())
@@ -11,8 +12,9 @@ def pre_process(raw):
     for r in raw: 
         if r in "x":
             acc += 1
-        else:            
-            data.append((acc,int(r)))
+        else:                        
+            data.append((acc % int(r),int(r)))
+            acc += 1
 
     return curr_t, data
 
@@ -31,29 +33,42 @@ def part1(curr_t, data):
     return (min_t - curr_t) * min_id
 
 def part2(data):
-    curr_t = data[0][1]
-    all_done = False
+    eqs = np.zeros((len(data), len(data)+1))
+    b = np.zeros(len(data))
+    #print(eqs)
+    #print(b)
 
-    while(not all_done):
-    #for i in range(300):
-        all_done = True
-
-        if curr_t % 100000 == 0:
-            print(curr_t)
-
-        for i, (t, buss) in enumerate(data[1:]):
-            offset = t + i + 1
-            
-            if not (curr_t + offset) % buss == 0:
-                curr_t += data[0][1]
-                all_done = False
-                break
+    for i, (r,buss) in enumerate(data):
+        eqs[i][0]   = 1  # Num looking for
+        eqs[i][i+1] = -1 * buss
+        b[i] = (r + i) % buss
 
     print(data)
+
+    print(eqs)
+    print(b)
+
+    # ans = np.linalg.solve(eqs,b)
+    # all_done = False
+    # while(not all_done):
+    # #for i in range(300):
+    #     all_done = True
+
+    #     if curr_t % 100000 == 0:
+    #         print(curr_t)
+
+    #     for i, (t, buss) in enumerate(data[1:]):
+    #         offset = t + i + 1
+            
+    #         if not (curr_t + offset) % buss == 0:
+    #             curr_t += data[0][1]
+    #             all_done = False
+    #             break
+
     return curr_t
 
-curr_t, data = pre_process(open("In/in13").readlines())
+curr_t, data = pre_process(open("In/t").readlines())
 
-print(curr_t, data)
 print(part1(curr_t, data))
+print("\n")
 print(part2(data))
