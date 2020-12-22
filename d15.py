@@ -8,7 +8,7 @@ def part1(data):
     
     last_num = data[-1]
 
-    for i in range(len(data),30000000):
+    for i in range(len(data), 30000000):
 
         if last_num in mem and len(mem[last_num]) > 1:
             x = mem[last_num]
